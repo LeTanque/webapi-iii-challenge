@@ -1,12 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const router = require('./data/router.js');
 
 const server = express();
 
 server.use(express.json());
 server.use(cors());
-
+server.use(helmet());
 
 server.get('/', (req, res) => {
     res.send(`
@@ -17,4 +18,6 @@ server.get('/', (req, res) => {
 
 server.use('/api', router);
 
-module.exports = server; 
+module.exports = server;
+
+
