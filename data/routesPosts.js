@@ -84,7 +84,7 @@ routesPosts.put('/:id', async (req, res) => {
         }
     }
     catch (error) {
-        res.status(500).json({ message: "Something went wrong updating user!"})
+        res.status(500).json({ message: "Something went wrong updating post!"})
     }
     try {
         const postUpdate = await PostDB.update(req.params.id, req.body);

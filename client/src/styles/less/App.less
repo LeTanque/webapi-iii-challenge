@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  .App-header {
+    background-color: #272727;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: calc(10px + 2vmin);
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+      height: 20vmin;
+      margin: 0 auto;
+      pointer-events: none;
+    }
+  }
+}
+
+
+.posts {
+  .post-title {
+    font-size: 2.2rem;
+    font-style: italic;
+  }
+  .post-contents {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  .post-id {
+    font-size: 1rem;
+  }
+  .post-actions {
+    font-size: 2.4rem;
+    cursor: pointer;
+    .post-delete {
+      color: red;
+    }
+    .post-edit {
+      color: darkcyan;
+    }
+  }
+}
