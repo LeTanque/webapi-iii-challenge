@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import User from './User.jsx';
 
 
 const Users = props => {
-    console.log('Users props:  ', props)
     return (
-        <h3>Users</h3>
+        <Fragment>
+            <h3>Users</h3>
+
+            {props.users.map(user => {
+                return (
+                    <Fragment key={user.id}>
+                        <User userName={user.name} userID={user.id} />
+                    </Fragment>
+                )
+            })}
+            
+        </Fragment>
     )
 }
 
