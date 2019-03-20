@@ -73,31 +73,27 @@ routesPosts.delete('/:id', async (req, res) => {
 });
 
 
-// // Update user name
-// routesPosts.put('/:id', async (req, res) => {
-//     try {
-//         const checkUserExists = await PostDB.getById(req.params.id);
-//         const allUsers = await PostDB.get(req.query);
-//         const userFiltered = allUsers.filter(user => user.name === req.body.name);
-//         if (!checkUserExists) { 
-//             return res.status(404).json({ message: "The user with the specified ID does not exist. Cannot update!" });
-//         } else if (!req.body.name) {
-//             return res.status(200).json({ message: "Nothing updated." })
-//         } else if (userFiltered.length >= 1) {
-//             return res.status(409).json({ message: "Please choose a different name. User already exists." })
-//         }
-//     }
-//     catch (error) {
-//         res.status(500).json({ message: "Something went wrong updating user!"})
-//     }
-//     try {
-//         const userUpdate = await PostDB.update(req.params.id, req.body);
-//         res.status(200).json({ message: `${userUpdate} user has been updated` })
-//     }
-//     catch (error) {
-//         res.status(500).json({ message: "Something went wrong updating user!"})
-//     }
-// });
+// Update post
+routesPosts.put('/:id', async (req, res) => {
+    try {
+        const checkPostExists = await PostDB.getById(req.params.id);
+        if (!checkPostExists) { 
+            return res.status(404).json({ message: "The post with the specified ID does not exist. Cannot update!" });
+        } else if (!req.body.text) {
+            return res.status(200).json({ message: "Nothing updated." })
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: "Something went wrong updating user!"})
+    }
+    try {
+        const postUpdate = await PostDB.update(req.params.id, req.body);
+        res.status(200).json({ message: `${postUpdate} post has been updated` });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Something went wrong updating post!"});
+    }
+});
 
 
 
