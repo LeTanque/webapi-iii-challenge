@@ -102,6 +102,24 @@ router.delete('/users/:id', async (req, res) => {
 });
 
 
+// Update user name
+router.put('/users/:id', async (req, res) => {
+    const checkUserExists = await userDB.getById(req.params.id);
+    if (!checkUserExists) { 
+        res.status(404).json({ message: "The user with the specified ID does not exist. Cannot update!" });
+    }
+    if (!req.body.name) {
+        res.status(200).json({ message: "Nothing updated." })
+    }
+    try {
+        const userUpdate = await userDB.update(req.params.id, req.body);
+        res.status(200).json({ message: `${userUpdate} user has been updated` })
+    }
+    catch (error) {
+        res.status(500).json({ message: "Something went wrong updating user!"})
+    }
+});
+
 
 
 
