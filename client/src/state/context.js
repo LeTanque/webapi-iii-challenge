@@ -1,6 +1,6 @@
-import React from 'react'
+import { createContext } from 'react'
 
-const UsersContext = React.createContext({
+const UsersContext = createContext({
     users:[],
     posts:[],
     currentUser:{},

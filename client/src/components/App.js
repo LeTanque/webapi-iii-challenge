@@ -45,6 +45,8 @@ const App = () => {
     });
   }, [postsAll]);
 
+  // console.log(state)
+
   return (
     <UsersContext.Provider value={{ state, dispatch }}>
       <div className="App">

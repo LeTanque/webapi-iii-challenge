@@ -10,7 +10,7 @@ import reducer from '../state/reducer';
 
 const User = props => {
     const initialState = useContext(UsersContext);
-    const [ state, dispatch ] = useReducer(reducer, initialState.state.currentUser);
+    const [ state, dispatch ] = useReducer(reducer, initialState);
 
     const setUser = (userObject) => {
         dispatch({
@@ -19,7 +19,7 @@ const User = props => {
         });
     }
     
-    console.log(state)
+    console.log(initialState)
     return (
         <Fragment>
 

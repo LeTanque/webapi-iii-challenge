@@ -5,6 +5,19 @@ const UserDB = require('./helpers/userDb.js');
 const routesUsers = express.Router();
 
 
+
+function upperCaser(req,res,next) {
+    if (req.body.name) {
+        req.body.name = req.body.name.toUpperCase();
+        next()
+    } else {
+        next()
+    }
+}
+ 
+routesUsers.use(upperCaser);
+
+
 // Server.js handles the /api path. Router.js handles the users path
 
 
